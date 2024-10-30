@@ -1,23 +1,22 @@
-// Convert pounds to kilograms as you type
-document.getElementById("lbsInput").addEventListener("input", function () {
-    const lbs = this.value;
+// Convert pounds to kilograms
+function convertLbsToKg() {
+    const lbs = document.getElementById("lbsInput").value;
     const kgResult = document.getElementById("kgResult");
     
     if (lbs) {
-        const kg = (lbs * 0.453592).toFixed(2); // Conversion factor for lbs to kg
-        kgResult.textContent = `${lbs} lbs is equal to ${kg} kg.`;
-        kgResult.style.visibility = "visible";
+        const kg = (lbs * 0.453592).toFixed(2);
+        kgResult.textContent = `${lbs} lbs = ${kg} kg`;
     } else {
-        kgResult.style.visibility = "hidden";
+        kgResult.textContent = "Please enter a weight in lbs.";
     }
-});
+}
 
-// Convert height in feet and inches to centimeters as you type
-document.getElementById("heightInput").addEventListener("input", function () {
-    const heightInput = this.value.trim();
+// Convert height in feet and inches to centimeters
+function convertHeightToCm() {
+    const heightInput = document.getElementById("heightInput").value.trim();
     const cmResult = document.getElementById("cmResult");
     
-    // Expecting height input in the format "5 11" (feet inches)
+    // Parse input in format "5 11"
     const heightParts = heightInput.split(" ");
     if (heightParts.length === 2) {
         const feet = parseInt(heightParts[0]);
@@ -25,11 +24,10 @@ document.getElementById("heightInput").addEventListener("input", function () {
         
         if (!isNaN(feet) && !isNaN(inches)) {
             const totalInches = feet * 12 + inches;
-            const cm = (totalInches * 2.54).toFixed(2); // Conversion factor for inches to cm
-            cmResult.textContent = `${feet} feet ${inches} inches is equal to ${cm} cm.`;
-            cmResult.style.visibility = "visible";
+            const cm = (totalInches * 2.54).toFixed(2);
+            cmResult.textContent = `${feet}'${inches}" = ${cm} cm`;
             return;
         }
     }
-    cmResult.style.visibility = "hidden";
-});
+    cmResult.textContent = "Use format 'feet inches' (e.g., 5 11).";
+}
