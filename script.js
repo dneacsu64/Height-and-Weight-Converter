@@ -1,29 +1,35 @@
-// Convert pounds to kilograms
-function convertLbsToKg() {
-    const lbs = document.getElementById("lbsInput").value;
+// Convert pounds to kilograms as you type
+document.getElementById("lbsInput").addEventListener("input", function () {
+    const lbs = this.value;
+    const kgResult = document.getElementById("kgResult");
+    
     if (lbs) {
         const kg = (lbs * 0.453592).toFixed(2); // Conversion factor for lbs to kg
-        document.getElementById("kgResult").textContent = `${lbs} lbs is equal to ${kg} kg.`;
+        kgResult.textContent = `${lbs} lbs is equal to ${kg} kg.`;
+        kgResult.style.visibility = "visible";
     } else {
-        document.getElementById("kgResult").textContent = "Please enter a weight in pounds.";
+        kgResult.style.visibility = "hidden";
     }
-}
+});
 
-// Convert height in feet and inches to centimeters
-function convertHeightToCm() {
-    const heightInput = document.getElementById("heightInput").value.trim();
+// Convert height in feet and inches to centimeters as you type
+document.getElementById("heightInput").addEventListener("input", function () {
+    const heightInput = this.value.trim();
+    const cmResult = document.getElementById("cmResult");
+    
+    // Expecting height input in the format "5 11" (feet inches)
     const heightParts = heightInput.split(" ");
-
     if (heightParts.length === 2) {
         const feet = parseInt(heightParts[0]);
         const inches = parseInt(heightParts[1]);
-
+        
         if (!isNaN(feet) && !isNaN(inches)) {
             const totalInches = feet * 12 + inches;
             const cm = (totalInches * 2.54).toFixed(2); // Conversion factor for inches to cm
-            document.getElementById("cmResult").textContent = `${feet} feet ${inches} inches is equal to ${cm} cm.`;
+            cmResult.textContent = `${feet} feet ${inches} inches is equal to ${cm} cm.`;
+            cmResult.style.visibility = "visible";
             return;
         }
     }
-    document.getElementById("cmResult").textContent = "Please enter height in the format 'feet inches' (e.g., 5 11 or 6 2).";
-}
+    cmResult.style.visibility = "hidden";
+});
