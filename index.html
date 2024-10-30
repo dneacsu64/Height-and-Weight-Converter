@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Unit Converter</h1>
+        
+        <!-- Pounds to Kilograms Converter -->
+        <div class="converter">
+            <h2>Convert Pounds to Kilograms</h2>
+            <input type="number" id="lbsInput" placeholder="Enter weight in lbs" min="0">
+            <button onclick="convertLbsToKg()">Convert</button>
+            <p id="kgResult"></p>
+        </div>
+
+        <!-- Height Converter -->
+        <div class="converter">
+            <h2>Convert Height to Centimeters</h2>
+            <input type="text" id="heightInput" placeholder="Enter height as 5 11 or 6 2">
+            <button onclick="convertHeightToCm()">Convert</button>
+            <p id="cmResult"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
