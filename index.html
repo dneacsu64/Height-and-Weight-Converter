@@ -13,17 +13,17 @@
         <!-- Pounds to Kilograms Converter -->
         <div class="converter">
             <label for="lbsInput">Weight (lbs):</label>
-            <input type="number" id="lbsInput" placeholder="e.g., 150" min="0">
+            <input type="number" id="lbsInput" placeholder="e.g., 150" min="0" aria-label="Weight in pounds">
             <button onclick="convertLbsToKg()">Convert</button>
-            <p id="kgResult" class="result"></p>
+            <p id="kgResult" class="result" aria-live="polite"></p>
         </div>
 
         <!-- Height Converter -->
         <div class="converter">
             <label for="heightInput">Height (feet inches):</label>
-            <input type="text" id="heightInput" placeholder="e.g., 5 11">
+            <input type="text" id="heightInput" placeholder="e.g., 5 11" aria-label="Height in feet and inches">
             <button onclick="convertHeightToCm()">Convert</button>
-            <p id="cmResult" class="result"></p>
+            <p id="cmResult" class="result" aria-live="polite"></p>
         </div>
     </div>
     <script src="script.js"></script>
